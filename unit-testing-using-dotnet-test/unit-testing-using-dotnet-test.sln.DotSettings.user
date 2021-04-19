@@ -1,0 +1,7 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=facaabf3_002D9d3c_002D408e_002Db65d_002D2144b9d1075a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Should_print_Fizz_when_number_is_3_time" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::257D86DE-94AF-41E5-BF93-9B57CE482AC9::net5.0::Prime.UnitTests.Services.FizzBuzzWhizz.Should_print_Fizz_when_number_is_3_time&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::257D86DE-94AF-41E5-BF93-9B57CE482AC9::net5.0::Prime.UnitTests.Services.MockOperationTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
