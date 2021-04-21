@@ -8,7 +8,7 @@ namespace FilterApiImplement.ConfigurationRegistry
         public static IServiceCollection AddFilters(this IServiceCollection filters)
         {
             filters.AddScoped<ActionFilterExample>();
-            filters.AddScoped<AsyncActionFilterExample>();
+            // filters.AddScoped<AsyncActionFilterExample>();
             filters.AddScoped<MyActionFilterAttribute>();
             filters.AddScoped<MyActionFilterAttribute2>();
             filters.AddScoped<ValidationFilterAttribute>();
