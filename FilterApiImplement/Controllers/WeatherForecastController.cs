@@ -54,14 +54,14 @@ namespace FilterApiImplement.Controllers
             .ToArray();
         }
         [HttpGet("getValue")]
-        //[ServiceFilter(typeof(AsyncActionFilterExample))]
+        // [ServiceFilter(typeof(AsyncActionFilterExample))]
         // [ServiceFilter(typeof(ActionFilterExample))]
         // [AddHeader("Author", "Rick Anderson", Order = 2)]
         // [ServiceFilter(typeof(MyActionFilterAttribute), Order = 2)]
         // [ServiceFilter(typeof(MyActionFilterAttribute2), Order = 1)]
         [TypeFilter(typeof(AsyncActionFilterExample))]
         //typefilter vs serviceFilter
-        async public Task<string> GetWeatherServiceConfig()
+        public string GetWeatherServiceConfig()
         {
             var emailConfigurePassword = _emailConfigure.Password;
             var emailConfigureUsername = _emailConfigure.Username;

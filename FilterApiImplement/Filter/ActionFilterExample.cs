@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
@@ -9,7 +10,7 @@ namespace FilterApiImplement.Filter
     {
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            throw new InternalBufferOverflowException();
+            Console.WriteLine("ActionFilterExample");
         }
 
         public void OnActionExecuted(ActionExecutedContext context)
