@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json;
 using databaseConnector.model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -17,7 +18,7 @@ namespace databaseConnector.filter{
             var result = context.Result as ObjectResult;
             var returnString = new returnString{
                 Success = true,
-                Data = result.Value.ToString(),
+                Data = JsonSerializer.Serialize(result.Value).ToString(),
                 Code = 10000
             };
             result.Value = returnString;
