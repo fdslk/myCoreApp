@@ -3,3 +3,7 @@
 bin
 obj
 .DS_store
+tools/
+coveragereport/
+TestResults/
+coverage/
