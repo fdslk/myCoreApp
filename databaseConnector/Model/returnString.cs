@@ -1,3 +1,5 @@
+using System.Text.Json;
+
 namespace databaseConnector.model{
     public class returnString
     {
@@ -15,5 +17,10 @@ namespace databaseConnector.model{
         public bool Success { get => success; set => success = value; }
         public int Code { get => code; set => code = value; }
         public string Data { get => data; set => data = value; }
+
+        public override string ToString()
+        {
+            return JsonSerializer.Serialize(this);
+        }
     }
 }

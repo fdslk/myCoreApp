@@ -35,5 +35,22 @@ namespace databaseConnector.Controllers
             })
             .ToArray();
         }
+
+        [HttpGet("{city}")]
+        public WeatherForecast Get(string city)
+        {
+            if (!string.Equals(city?.TrimEnd(), "Redmond", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new ArgumentException(
+                    $"We don't offer a weather forecast for {city}.", nameof(city));
+            }
+            
+            throw new NotImplementedException();
+        }
+
+        private object GetWeather()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

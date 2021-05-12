@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using databaseConnector.configregistry;
+using Microsoft.Extensions.Logging;
+using databaseConnector.Extensions;
 
 namespace databaseConnector
 {
@@ -16,6 +18,8 @@ namespace databaseConnector
         }
 
         public IConfiguration Configuration { get; }
+
+        public ILogger _logger;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -38,6 +42,8 @@ namespace databaseConnector
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "databaseConnector v1"));
             }
+
+            app.ConfigureExceptionHandler();
 
             app.UseHttpsRedirection();
 
