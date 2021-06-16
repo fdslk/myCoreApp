@@ -35,5 +35,11 @@ namespace TestCast.Controllers
             })
             .ToArray();
         }
+
+        [HttpPost("{id}")]
+        [CustomResourceFilter("toggle1", "toggle1")]
+        public ActionResult ModifyWeather([FromRoute] string id, [FromBody] Object name){
+            return Ok(name + id);
+        }
     }
 }
