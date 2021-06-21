@@ -11,10 +11,12 @@ namespace EventTest
             EventImplementation1();
         }
 
+
+
         private static void EventImplementation1()
         {
             System.Console.WriteLine(string.Format("random number is {0}", v));
-            var c = new Counter(v);
+            var c = new CounterWithData(v);
             c.ThresholdReached += c_ThresholdReached;
 
             Console.WriteLine("press 'a' key to increase total");
@@ -28,6 +30,12 @@ namespace EventTest
         private static void c_ThresholdReached(object sender, EventArgs e)
         {
             Console.WriteLine("The threshold was reached.");
+        }
+
+        static void c_ThresholdReached(object sender, ThresholdReachedEventArgs e)
+        {
+            Console.WriteLine("The threshold of {0} was reached at {1}.", e.Threshold,  e.TimeReached);
+            Environment.Exit(0);
         }
     }
 }
