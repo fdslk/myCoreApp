@@ -16,7 +16,7 @@ namespace EventTest
         private static void EventImplementation1()
         {
             System.Console.WriteLine(string.Format("random number is {0}", v));
-            var c = new CounterWithData(v);
+            var c = new CounterWithDelegate(v);
             c.ThresholdReached += c_ThresholdReached;
 
             Console.WriteLine("press 'a' key to increase total");
