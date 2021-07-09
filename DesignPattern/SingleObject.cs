@@ -20,7 +20,6 @@ namespace DemoSingle
            public void add(){
                innerCounter++;
                System.Console.WriteLine($"{innerCounter}");
-               Thread.Sleep(2000);
            }
     }
 }

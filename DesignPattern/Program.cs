@@ -10,12 +10,14 @@ namespace DesignPattern
         {
             var singleObject = SingleObject.GetInstance();
             singleObject.ShowMessage();
-            var lazySingleObject = LazyManWithoutThreadSafe.GetInstance();
+            var lazySingleObjectWithSafe = LazyManWithThreadSafe.GetInstance();
+            var lazySingleObjectWithoutSafe = LazyManWithoutThreadSafe.GetInstance();
 
             Parallel.For(0, 500000000000000, (i, loopstate) =>
               {
-                //   singleObject.add();
-                lazySingleObject.add();
+                // singleObject.add();
+                // lazySingleObjectWithSafe.add();
+                lazySingleObjectWithoutSafe.add();
                 if(i == 100){
                     loopstate.Break();
                 }
