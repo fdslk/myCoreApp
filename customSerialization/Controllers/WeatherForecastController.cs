@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Common;
+using CustomResovler;
+using CustomsResolvers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Model;
 using models;
+using Newtonsoft.Json;
 
 namespace customSerialization.Controllers
 {
@@ -47,11 +52,39 @@ namespace customSerialization.Controllers
                 AddressDetailStreet = "Xi'an"
             };
 
-            System.Console.WriteLine(student1.ToString());
+            System.Console.WriteLine(JsonConvert.SerializeObject(student1));
 
             string v = JsonHelper.ConvertJson.ConvertContentToJsonCamelCase(student1);
 
             return Ok(v);
+        }
+
+        [HttpGet("/ConvertToJSDatetime")]
+        public IActionResult ConvertDatetimeToJSDatetime(){
+
+            var order = DataHelper.GenerateOrder();
+
+            System.Console.WriteLine(JsonConvert.SerializeObject(order));
+
+            string result = JsonHelper.ConvertJson.ConvertContentUsingCustomContractResolver(order, new ConverterContractResolver());
+
+            return Ok(result);
+        }
+
+        [HttpGet("/ShouldSerialize")]
+        public IActionResult EqualObjectShouldSerialization(){
+            Employee joe = new Employee();
+            joe.Name = "Joe Employee";
+            Employee mike = new Employee();
+            mike.Name = "Mike Manager";
+
+            joe.Manager = mike;
+            mike.Manager = mike;
+            
+            string resultMike = JsonHelper.ConvertJson.ConvertContentUsingCustomContractResolver(mike, new ShouldSerializeContractResolver());
+            string resultJeo = JsonHelper.ConvertJson.ConvertContentUsingCustomContractResolver(joe, new ShouldSerializeContractResolver());
+
+            return Ok(resultMike + resultJeo);
         }
     }
 }
