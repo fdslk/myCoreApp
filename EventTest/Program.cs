@@ -10,23 +10,10 @@ namespace EventTest
         static void Main(string[] args)
         {
             // EventImplementation1();
-            // ClickEvent();
-            subscribeUpdateSource();
+            ClickEvent();
         }
 
 
-        public static void subscribeUpdateSource(){
-            var eventSource = new EventSource();
-            eventSource.Updated += UpdateReached;
-            eventSource.RaiseUpdated();
-            eventSource.RaiseUpdated();
-            System.Console.WriteLine(eventSource.counter);
-        }
-
-        private static void UpdateReached(object sender, int e)
-        {
-            System.Console.WriteLine("Update source Event reached");
-        }
 
         private static void EventImplementation1()
         {
@@ -71,7 +58,5 @@ namespace EventTest
             Console.WriteLine("The threshold of {0} was reached at {1}.", e.Threshold,  e.TimeReached);
             Environment.Exit(0);
         }
-
-
     }
 }
