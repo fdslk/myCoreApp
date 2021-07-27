@@ -1,0 +1,2 @@
+test git cmd and say hello to you
+
