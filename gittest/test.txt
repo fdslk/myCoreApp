@@ -1,2 +1,2 @@
-test git cmd and say hello to you and I want to modity it.
+test git cmd and say hello to you and I want to modity it and then revert it to former status.
 
