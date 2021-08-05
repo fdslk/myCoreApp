@@ -10,7 +10,7 @@ namespace SRPTEST.SRPModel
         {
             var circle = new Shape();
 
-            circle.Area = Math.PI * Math.Pow(shape.Radius, 2);
+            circle.Area = Math.Round(Math.PI * Math.Pow(shape.Radius, 2), 2, MidpointRounding.AwayFromZero);
             circle.Perimeter = 2 * Math.PI * shape.Radius;
 
             return circle;

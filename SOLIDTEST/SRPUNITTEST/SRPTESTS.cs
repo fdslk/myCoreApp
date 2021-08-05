@@ -2,18 +2,30 @@ using System;
 using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
-using SRPTEST;
 using SRPTEST.Model;
+using SRPTEST.SRPModel;
 
 namespace SRPUNITTEST
 {
     public class SRPTESTS
     {
+        private readonly AreaCalculator areaCalculator;
+        private readonly List<IShapeAreaCalculator> shapeAreaCalculators;
+        private readonly CircleAreaCalculator circleAreaCalculator;
+        private readonly SquareAreaCalculator squareAreaCalculator;
+        public SRPTESTS()
+        {
+            circleAreaCalculator = new CircleAreaCalculator();
+            squareAreaCalculator = new SquareAreaCalculator();
+            shapeAreaCalculators = new List<IShapeAreaCalculator> {circleAreaCalculator, squareAreaCalculator};
+            areaCalculator = new AreaCalculator(shapeAreaCalculators);
+        }    
+
         [Fact]
         public void GivenCircleShapeList_WhenCallAreaCalculator_ThenReturnCollectCircleArea()
         {
             //Give
-            var shapes = new List<Shape> {new Circle() {Radius = 2.0}};
+            var shapes = new List<SRPTEST.Model.Shape> {new Circle() {Radius = 2.0}};
 
             //When
             var AreaResult = new SRPTEST.AreaCalculator().areaCalculator(shapes);
@@ -29,7 +41,7 @@ namespace SRPUNITTEST
         public void GivenSquareShapeList_WhenCallAreaCalculator_ThenReturnCollectSquareArea()
         {
             //Give
-            var shapes = new List<Shape> {new Square() { Width = 2, Length = 4 }};
+            var shapes = new List<SRPTEST.Model.Shape> {new Square() { Width = 2, Length = 4 }};
 
             //When
             var AreaResult = new SRPTEST.AreaCalculator().areaCalculator(shapes);
@@ -40,5 +52,25 @@ namespace SRPUNITTEST
             sqaure.GetType().Should().Be(typeof(Square));
             sqaure.Area.Should().Be(8);
         }
+
+        #region SRPMODEL
+        [Fact]
+        public void GivenRadiusIs2_dWhenCalculateCircleArea_ThenReturnCircleAreaIs12point56()
+        {
+            //Given
+            var circle = new SRPTEST.SRPModel.Shape(){
+                ShapeType = nameof(CircleAreaCalculator),
+                Radius = 2
+            };
+
+            //When
+            var result = areaCalculator.CalculateBreakDown(circle);
+
+            //Then
+            result.Should().NotBeNull();
+            result.Area.Should().NotBe(null);
+            result.Area.Should().Be(12.57);
+        }
+        #endregion
     }
 }
