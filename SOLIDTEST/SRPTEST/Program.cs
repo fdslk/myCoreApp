@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SRPTEST.SRPModel;
+using Newtonsoft.Json;
 
 namespace SRPTEST
 {
@@ -17,7 +18,7 @@ namespace SRPTEST
                 ShapeType = typeof(CircleAreaCalculator).Name,
                 Radius = 2
             });
-            System.Console.WriteLine(result);
+            System.Console.WriteLine(JsonConvert.SerializeObject(result));
         }
     }
 }
