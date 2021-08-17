@@ -71,6 +71,25 @@ namespace SRPUNITTEST
             result.Area.Should().NotBe(null);
             result.Area.Should().Be(12.57);
         }
+
+        [Fact]
+        public void GivenHeightIs2AndWidthIs3_WhenCalculateSquareArea_ThenReturnSquareAreaIs6()
+        {
+            //Given
+            var sqaure = new SRPTEST.SRPModel.Shape(){
+                ShapeType = nameof(SquareAreaCalculator),
+                Height = 2,
+                Width = 3
+            };
+
+            //When
+            var result = areaCalculator.CalculateBreakDown(sqaure);
+
+            //Then
+            result.Should().NotBeNull();
+            result.Area.Should().NotBe(null);
+            result.Area.Should().Be(6);
+        }
         #endregion
     }
 }
