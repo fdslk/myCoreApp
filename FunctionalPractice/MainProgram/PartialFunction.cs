@@ -8,5 +8,8 @@ namespace MainProgram
         {
             return (x) => func(first, x);
         }
+        public static Func<T1, TR> Partial2<T1, T2, TR>(this Func<T1, T2, TR> func, T2 second){
+            return x=>func(x, second);
+        }
     }
 }

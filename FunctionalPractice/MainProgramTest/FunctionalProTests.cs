@@ -41,19 +41,29 @@ namespace MainProgramTest
         {
             //Given
             Func<double, double, double> pow = Math.Pow;
-            
-            
             Func<double, double> exp = (pow.Partial( 2 ));
 
             //When
             var v = exp(5);
-            var f = pow.Partial(2);
-
-            f(5);
+            var f = pow.Partial(2)(5);
 
             //Then
             v.Should().Be(32);
-            d.Should().Be(32);
+            f.Should().Be(32);
+        }
+
+        [Fact]
+        public void GivenFixPowerNumberIs5_WhenUseMathPowExtension_ThenReturn32()
+        {
+            //Given
+            Func<double, double, double> pow = Math.Pow;
+            Func<double, double> exp = (pow.Partial2(5));
+            
+            //When
+            var v = exp(2);
+            
+            //Then
+            v.Should().Be(32);
         }
     }
 }
