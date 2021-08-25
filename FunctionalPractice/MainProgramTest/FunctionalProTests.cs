@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.InteropServices;
-using System.Xml.Linq;
 using FluentAssertions;
 using Xunit;
 using MainProgram;
@@ -64,6 +62,20 @@ namespace MainProgramTest
             
             //Then
             v.Should().Be(32);
+        }
+
+        [Fact]
+        public void GivenFixXCoordinatesIs2AndYIs2AndZIs2_WhenCalculate3Distance_ThenReturnDistanceIs3Point4641016151377544()
+        {
+            //Given
+            Func<double, double, double, double> Distance = CurryFunction.Distance;
+            Func<double, double, double> Fix2XDistance = Distance.GetDistance(2);
+
+            //When
+            var distance = Fix2XDistance(2, 2);
+
+            //Then
+            distance.Should().Be(3.4641016151377544);
         }
     }
 }
