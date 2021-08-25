@@ -70,9 +70,30 @@ namespace MainProgramTest
             //Given
             Func<double, double, double, double> Distance = CurryFunction.Distance;
             Func<double, double, double> Fix2XDistance = Distance.GetDistance(2);
-
+            Func<double, Func<double, double>> curryMe = x => y => Fix2XDistance(x, y);
+            Func<double, double> basedCurryMe = curryMe(2);
+            
             //When
             var distance = Fix2XDistance(2, 2);
+            var d = curryMe(2)(2);
+            var me = basedCurryMe(2);
+
+            //Then
+            distance.Should().Be(3.4641016151377544);
+            d.Should().Be(3.4641016151377544);
+            me.Should().Be(3.4641016151377544);
+            
+        }
+
+        [Fact]
+        public void GivenFixXCoordinatesIs2AndYIs2AndZIs2_WhenCalculate3CurryDistance_ThenReturnDistanceIs3Point4641016151377544()
+        {
+            //Given
+            Func<double, double, double, double> Distance = CurryFunction.Distance;
+            var Fix2XDistance = Distance.CurryGetDistances();
+
+            //When
+            var distance = Fix2XDistance(2)(2)(2);
 
             //Then
             distance.Should().Be(3.4641016151377544);
