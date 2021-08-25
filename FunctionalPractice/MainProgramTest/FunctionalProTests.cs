@@ -1,4 +1,6 @@
 using System;
+using System.Runtime.InteropServices;
+using System.Xml.Linq;
 using FluentAssertions;
 using Xunit;
 using MainProgram;
@@ -32,6 +34,26 @@ namespace MainProgramTest
 
             //When
             str.Use(print);
+        }
+
+        [Fact]
+        public void GivenPartialPow_WhenUseMathPow_ThenReturn32()
+        {
+            //Given
+            Func<double, double, double> pow = Math.Pow;
+            
+            
+            Func<double, double> exp = (pow.Partial( 2 ));
+
+            //When
+            var v = exp(5);
+            var f = pow.Partial(2);
+
+            f(5);
+
+            //Then
+            v.Should().Be(32);
+            d.Should().Be(32);
         }
     }
 }
