@@ -21,12 +21,12 @@ namespace MainFunc
             Console.WriteLine(samsungClient.GetNormalPhoneDetail());  
             Console.WriteLine(samsungClient.GetSamrtPhoneDetail());  
             
-            // IMobilePhone appleMobilePhone = new Apple();  
-            // MobileFactory AppleClient = new MobileFactory(appleMobilePhone);  
-            //
-            // Console.WriteLine("******* SAMSUNG **********");  
-            // Console.WriteLine(samsungClient.GetNormalPhoneDetail());  
-            // Console.WriteLine(samsungClient.GetSamrtPhoneDetail());  
+            IMobilePhone appleMobilePhone = new Apple();  
+            MobileFactory AppleClient = new MobileFactory(appleMobilePhone);  
+            
+            Console.WriteLine("******* APPLE **********");  
+            Console.WriteLine(AppleClient.GetNormalPhoneDetail());  
+            Console.WriteLine(AppleClient.GetSamrtPhoneDetail());  
   
             Console.ReadKey();          
         }

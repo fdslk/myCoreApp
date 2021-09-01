@@ -73,6 +73,35 @@ namespace AbstractFactoryDesignPatternInCSharp
             return "Samsung smart phone.";
         }
     }
+    
+    class Apple : IMobilePhone
+    {
+        public INormalPhone GetNormalPhone()
+        {
+            return new NormalApple();
+        }
+
+        public ISmartPhone GetSmartPhone()
+        {
+            return new SmartApple();
+        }
+    }
+    
+    class NormalApple : INormalPhone
+    {
+        public string GetModelDetails()
+        {
+            return "Apple normal phone.";
+        }
+    }
+
+    class SmartApple: ISmartPhone
+    {
+        public string GetModelDetails()
+        {
+            return "Apple smart phone.";
+        }
+    }
 
     class MobileFactory
     {
