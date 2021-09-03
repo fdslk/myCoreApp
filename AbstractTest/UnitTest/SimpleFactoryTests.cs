@@ -4,11 +4,11 @@ using Xunit;
 
 namespace UnitTest
 {
-    public class SimpleFactoryTest
+    public class SimpleFactoryTests
     {
         private readonly VegetableFactory _vegetableFactory;
         
-        public SimpleFactoryTest()
+        public SimpleFactoryTests()
         {
             _vegetableFactory = new VegetableFactory();
         }
