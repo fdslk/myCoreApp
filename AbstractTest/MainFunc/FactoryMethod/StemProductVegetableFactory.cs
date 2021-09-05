@@ -1,6 +1,6 @@
 namespace MainFunc.FactoryMethod
 {
-    public class StemVegetableFactory: VegetableFactory
+    public class StemProductVegetableFactory: ProductVegetableFactory
     {
         public Vegetable Product()
         {

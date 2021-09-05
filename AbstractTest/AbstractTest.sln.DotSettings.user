@@ -1,8 +1,6 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3740dba1_002Da8e3_002D4b50_002Db302_002Db5f22cb65704/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GivenBeanType_WhenGetVegetable_ThenReturnBean" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::6DE62DD4-5D30-41D2-8F1E-AC5739A190EA::net6.0::UnitTest.FactoryMethodTests.GivenRootVegetableFactory_WhenCallProduct_ThenReturnRootVegetable&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3740dba1_002Da8e3_002D4b50_002Db302_002Db5f22cb65704/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GivenBeanType_WhenGetVegetable_ThenReturnBean" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Project Location="/Users/zengqiangfang/Documents/code/myCoreApp/AbstractTest/UnitTest" Presentation="&amp;lt;UnitTest&amp;gt;" /&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=735ad0ca_002Dae8d_002D4103_002D8592_002D378022a7ad74/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GivenBeanType_WhenGetVegetable_ThenReturnBean #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;Or&gt;

@@ -2,7 +2,7 @@ using MainFunc.simpleFactory;
 
 namespace MainFunc.FactoryMethod
 {
-    public class RootVegetableFactory: VegetableFactory
+    public class RootProductVegetableFactory: ProductVegetableFactory
     {
         public Vegetable Product()
         {

@@ -1,7 +1,15 @@
 namespace MainFunc.FactoryMethod
 {
-    public interface VegetableFactory
+    public class VegetableFactory
     {
-        Vegetable Product();
+        public ProductVegetableFactory GetProductVegetableFactory(string type)
+        {
+            return type switch
+            {
+                nameof(RootProductVegetableFactory) => new RootProductVegetableFactory(),
+                nameof(StemProductVegetableFactory) => new StemProductVegetableFactory(),
+                _ => null
+            };
+        }
     }
 }

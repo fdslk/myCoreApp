@@ -10,7 +10,7 @@ namespace UnitTest
         public void GivenRootVegetableFactory_WhenCallProduct_ThenReturnRootVegetable()
         {
             //Given
-            var rootVegetableFactory = new RootVegetableFactory();
+            var rootVegetableFactory = new RootProductVegetableFactory();
 
             //When
             var vegetable = rootVegetableFactory.Product();
@@ -23,13 +23,39 @@ namespace UnitTest
         public void GivenStemVegetableFactory_WhenCallProduct_ThenReturnStemVegetable()
         {
             //Given
-            var stemVegetableFactory = new StemVegetableFactory();
+            var stemVegetableFactory = new StemProductVegetableFactory();
 
             //When
             var vegetable = stemVegetableFactory.Product();
 
             //Then
             vegetable.GetType().Name.Should().Be(nameof(StemVegetable));
+        }
+
+        [Fact]
+        public void GivenStemProductVegetableType_WhenCallGetVegetableFactory_ReturnStemProductVegetableFactory()
+        {
+            //Given
+            var vegetableFactory = new VegetableFactory();
+
+            //When
+            var productVegetableFactory = vegetableFactory.GetProductVegetableFactory(nameof(StemProductVegetableFactory));
+
+            //Then
+            productVegetableFactory.GetType().Name.Should().Be(nameof(StemProductVegetableFactory));
+        }
+        
+        [Fact]
+        public void GivenRootProductVegetableType_WhenCallGetVegetableFactory_ReturnRootProductVegetableFactory()
+        {
+            //Given
+            var vegetableFactory = new VegetableFactory();
+
+            //When
+            var productVegetableFactory = vegetableFactory.GetProductVegetableFactory(nameof(RootProductVegetableFactory));
+
+            //Then
+            productVegetableFactory.GetType().Name.Should().Be(nameof(RootProductVegetableFactory));
         }
     }
 }
