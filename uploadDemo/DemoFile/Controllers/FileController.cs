@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -35,6 +34,14 @@ namespace DemoFile.Controller{
             }
             
             return Ok(new { count = files.Count, size });
+        }
+        
+        [HttpPost("binary")]
+        public async Task<IActionResult> PostBinaryAsync()
+        {
+            using var sr = new StreamReader(Request.Body);
+            var body = await sr.ReadToEndAsync();
+            return Ok(new { count = body.Length });
         }
 
         private string GetLocalPath()
